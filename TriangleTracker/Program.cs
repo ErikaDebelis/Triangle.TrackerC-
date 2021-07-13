@@ -9,6 +9,9 @@ namespace Triangle
     {
       Console.WriteLine("main works!");
       TriangleChecker newTriangleChecker = new TriangleChecker(2, 3, 5);
+
+      Console.WriteLine("I am a" + newTriangleChecker.type);
+
       newTriangleChecker.Test();
     }
   }
