@@ -22,14 +22,42 @@ namespace Triangle.Tracker
         {
             Console.WriteLine("Triangle works!");
         }
+
+        public bool IsTriangle()
+        {
+            if ((side1 + side2) > side3 && (side1 + side3) > side2 && (side2 + side3) > side1)
+            {
+                return true;
+            }
+            return false;
+        }
         public bool IsEquilateral()
         {
             return (side1 == side2 && side2 == side3);
         }
         public bool IsIsosceles()
         {
-            if (IsEquilateral()) return false;
+            if (!IsTriangle())
+            {
+                return false;
+            }
+            else if (IsEquilateral()) return false;
             return (side1 == side2 || side1 == side3 || side2 == side3);
+            
+        }
+        public bool IsScalene()
+        {
+            
+            if (IsTriangle())
+            {
+                return true;
+            }
+            else if (side1 != side2 && side1 != side3 && side2 != side3)
+            {
+                return false;
+            }
+
+            return false;
         }
     }
 }

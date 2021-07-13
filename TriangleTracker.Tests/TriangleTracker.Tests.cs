@@ -56,6 +56,51 @@ namespace TriangleTracker.Tests
       TriangleChecker triangle = new TriangleChecker(3, 3, 3);
       Assert.AreEqual(triangle.IsIsosceles(), false);
     }
+    [TestMethod]
+    public void IsIsosceles_ChecksForAnIsoscelesTriangle_ReturnsFalseWhenTwoSidesAreLessThanTheHypotenuse()
+    {
+      TriangleChecker triangle1 = new TriangleChecker(3, 3, 7);
+      Assert.AreEqual(triangle1.IsIsosceles(), false);
 
+      TriangleChecker triangle2 = new TriangleChecker(3, 7, 3);
+      Assert.AreEqual(triangle2.IsIsosceles(), false);
+
+      TriangleChecker triangle3 = new TriangleChecker(7, 3, 3);
+      Assert.AreEqual(triangle3.IsIsosceles(), false);
+    }
+
+
+    [TestMethod]
+    public void IsScalene_ChecksForAScaleneTriangle_ReturnsTrueWhenNoSidesMatch()
+    {
+      TriangleChecker triangle = new TriangleChecker(3, 4, 5);
+      Assert.AreEqual(triangle.IsScalene(), true);
+    }
+
+    [TestMethod]
+    public void IsScalene_ChecksForAScaleneTriangle_ReturnsFalseWhenAnyTwoSidesAreLessThanTheThird()
+    {
+      TriangleChecker triangle1 = new TriangleChecker (2, 1, 4);
+      Assert.AreEqual(triangle1.IsScalene(), false);
+
+      TriangleChecker triangle2 = new TriangleChecker (2, 4, 1);
+      Assert.AreEqual(triangle2.IsScalene(), false);
+      
+      TriangleChecker triangle3 = new TriangleChecker (4, 2, 1);
+      Assert.AreEqual(triangle3.IsScalene(), false);
+    }
+
+    [TestMethod]
+    public void IsScalene_ChecksForAScaleneTriangle_ReturnsFalseWhenAnyTwoSidesAddedTogetherAreEqualToTheThirdSide()
+    {
+      TriangleChecker triangle1 = new TriangleChecker (2, 3, 5);
+      Assert.AreEqual(triangle1.IsScalene(), false);
+
+      TriangleChecker triangle2 = new TriangleChecker (2, 5, 3);
+      Assert.AreEqual(triangle2.IsScalene(), false);
+
+      TriangleChecker triangle3 = new TriangleChecker (5, 3, 2);
+      Assert.AreEqual(triangle3.IsScalene(), false);
+    }
   }
 }
