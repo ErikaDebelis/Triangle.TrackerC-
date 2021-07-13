@@ -102,5 +102,12 @@ namespace TriangleTracker.Tests
       TriangleChecker triangle3 = new TriangleChecker (5, 3, 2);
       Assert.AreEqual(triangle3.IsScalene(), false);
     }
+
+    [TestMethod]
+    public void IsScalene_ChecksForAScaleneTriangle_ReturnsFalseIfEquilateral()
+    {
+      TriangleChecker triangle1 = new TriangleChecker(2, 2, 2);
+      Assert.AreEqual(triangle1.IsScalene(), false);
+    }
   }
 }

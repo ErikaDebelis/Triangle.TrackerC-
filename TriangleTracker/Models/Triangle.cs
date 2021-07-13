@@ -25,11 +25,11 @@ namespace Triangle.Tracker
 
         public bool IsTriangle()
         {
-            if ((side1 + side2) > side3 && (side1 + side3) > side2 && (side2 + side3) > side1)
-            {
-                return true;
-            }
-            return false;
+            return (
+                (side1 + side2) > side3 && 
+                (side1 + side3) > side2 && 
+                (side2 + side3) > side1
+            );
         }
         public bool IsEquilateral()
         {
@@ -46,15 +46,14 @@ namespace Triangle.Tracker
             
         }
         public bool IsScalene()
-        {
-            
-            if (IsTriangle())
+        {            
+            if (!IsTriangle())
             {
-                return true;
+                return false;
             }
             else if (side1 != side2 && side1 != side3 && side2 != side3)
             {
-                return false;
+                return true;
             }
 
             return false;
