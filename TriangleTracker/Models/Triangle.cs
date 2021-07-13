@@ -26,5 +26,10 @@ namespace Triangle.Tracker
         {
             return (side1 == side2 && side2 == side3);
         }
+        public bool IsIsosceles()
+        {
+            if (IsEquilateral()) return false;
+            return (side1 == side2 || side1 == side3 || side2 == side3);
+        }
     }
 }
