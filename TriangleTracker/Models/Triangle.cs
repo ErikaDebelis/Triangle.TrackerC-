@@ -22,9 +22,9 @@ namespace Triangle.Tracker
         {
             Console.WriteLine("Triangle works!");
         }
-        public int DoThing()
+        public bool IsEquilateral()
         {
-            return 42;
+            return (side1 == side2 && side2 == side3);
         }
     }
 }

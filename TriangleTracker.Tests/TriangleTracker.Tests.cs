@@ -15,5 +15,19 @@ namespace TriangleTracker.Tests
       Assert.AreEqual(triangle.side2, 4);
       Assert.AreEqual(triangle.side3, 5);
     }
+
+    [TestMethod]
+    public void IsEquilateral_ChecksForAnEquilateralTriangle_ReturnsTrueWhenSidesEqual()
+    {
+      TriangleChecker triangle = new TriangleChecker(10, 10, 10);
+      Assert.AreEqual(triangle.IsEquilateral(), true);
+    }
+
+    [TestMethod]
+    public void IsEquilateral_ChecksForNotAnEquilateralTriangle_ReturnsFalseWhenSidesNotEqual()
+    {
+      TriangleChecker triangle = new TriangleChecker(10, 11, 10);
+      Assert.AreEqual(triangle.IsEquilateral(), false);
+    }
   }
 }
